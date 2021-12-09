@@ -110,6 +110,21 @@ public struct GitClient {
         print("Rebased \(self.repoName()):\(hash)")
     }
     
+    public func statusMessage() -> String {
+        let fetchResult = runShellCommand(gitSubcommandArguments: ["status", "HEAD"], haltOnError: true)
+        return fetchResult.output.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    public func lastCommitMessage() -> String {
+        let fetchResult = runShellCommand(gitSubcommandArguments: ["log", "-1"], haltOnError: true)
+        return fetchResult.output.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    public func currentDiff() -> String {
+        let fetchResult = runShellCommand(gitSubcommandArguments: ["diff", "HEAD"], haltOnError: true)
+        return fetchResult.output.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     public func fetchCommit(branch: Branch) -> String? {
         
         if let remote = branch.remote, remote.isEmpty == false {
