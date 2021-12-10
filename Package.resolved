@@ -5,9 +5,9 @@
         "package": "swift-utilities",
         "repositoryURL": "https://github.com/gestrich/swift-utilities.git",
         "state": {
-          "branch": "main",
-          "revision": "5afef61e761d7b3e06ece6ef3356abb6b5a0d9dc",
-          "version": null
+          "branch": null,
+          "revision": "49935234c379b4ba2cd68eb2c72200c2b700a937",
+          "version": "0.1.0"
         }
       }
     ]
